@@ -1,0 +1,17 @@
+sudo: required
+
+language: bash
+services: docker
+
+env:
+  - STATSD_VERSION=0.8.0 STATSD_LIBRATO_BACKEND_VERSION=2.0.13 VARIANT=alpine
+
+script:
+  - ./scripts/cibuild
+
+deploy:
+  - provider: script
+    script: "scripts/cipublish"
+    on:
+      repo: azavea/docker-statsd
+      branch: master
