@@ -14,7 +14,6 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
-    	STATSITE_MAJOR_VERSION="${STATSITE_VERSION:0:3}"
         docker \
             login -u "${QUAY_USER}" -p "${QUAY_PASSWORD}" quay.io
 
